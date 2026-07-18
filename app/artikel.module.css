@@ -53,8 +53,8 @@
 .noot {
   margin-top: var(--space-xl);
   padding: var(--space-sm) var(--space-md);
-  background: var(--forest-3);
-  border: 2px solid var(--forest-6);
+  background: var(--zee-3);
+  border: 2px solid var(--zee-6);
   border-radius: var(--radius-md);
   font-size: 14.5px;
 }
@@ -63,7 +63,7 @@
 .tabelWrap {
   margin-top: var(--space-xl);
   overflow-x: auto;
-  border: 2px solid var(--forest-6);
+  border: 2px solid var(--zee-6);
   border-radius: var(--radius-lg);
   background: #fff;
 }
@@ -78,7 +78,7 @@
   text-align: left;
   vertical-align: top;
   padding: 14px 16px;
-  border-bottom: 1px solid var(--forest-6);
+  border-bottom: 1px solid var(--zee-6);
 }
 .tabel thead th {
   font-family: var(--font-ui);
@@ -105,7 +105,7 @@
 .vraag {
   margin-top: var(--space-lg);
   background: #fff;
-  border: 2px solid var(--forest-6);
+  border: 2px solid var(--zee-6);
   border-radius: var(--radius-lg);
   padding: var(--space-md);
 }
@@ -132,7 +132,7 @@
   font-weight: 800;
   font-size: 15px;
   color: #fff;
-  background: var(--color-forest);
+  background: var(--zee-diep);
   padding: 15px 28px;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);

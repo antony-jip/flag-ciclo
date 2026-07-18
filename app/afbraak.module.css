@@ -1,0 +1,100 @@
+/* De afbraak-animatie: sage-blue doek, forest-groene microben, een golf die
+   van de wapperende rand terug naar de mast trekt. Bij reduced motion staat
+   de scène stil met zichtbare microben: het verhaal blijft leesbaar. */
+
+.scene {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mast {
+  fill: #b9c0bd;
+}
+.mastKnop {
+  fill: #b9c0bd;
+}
+.bodem {
+  stroke: var(--color-stone);
+  stroke-width: 2;
+  opacity: 0.55;
+}
+
+.cel {
+  fill: var(--color-zee);
+}
+.cel[data-toon="1"] {
+  fill: color-mix(in srgb, var(--color-zee) 84%, #fff);
+}
+.cel[data-toon="2"] {
+  fill: color-mix(in srgb, var(--color-zee) 78%, var(--zee-diep));
+}
+
+.microbe {
+  fill: var(--color-forest);
+  opacity: 0.45;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cel {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: cel-afbraak 9s var(--ease, ease-in-out) infinite;
+    animation-delay: var(--d, 0s);
+  }
+  .microbe {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: microbe-leven 9s ease-in-out infinite;
+    animation-delay: var(--d, 0s);
+  }
+}
+
+/* Cel: lang intact, dan aangevreten losraken en richting bodem oplossen;
+   aan het einde van de cyclus rustig terug in beeld voor de loop. */
+@keyframes cel-afbraak {
+  0%,
+  44% {
+    opacity: 1;
+    transform: none;
+  }
+  58% {
+    opacity: 0.85;
+    transform: translate(2px, 4px) rotate(3deg);
+  }
+  74% {
+    opacity: 0;
+    transform: translate(10px, 26px) rotate(14deg) scale(0.4);
+  }
+  86% {
+    opacity: 0;
+    transform: none;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Microbe: verschijnt vlak voordat "zijn" stuk doek oplost, en dooft weer. */
+@keyframes microbe-leven {
+  0%,
+  28% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  40% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  56% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}

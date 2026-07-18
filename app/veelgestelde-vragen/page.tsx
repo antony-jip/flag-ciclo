@@ -35,7 +35,7 @@ const VRAGEN = [
   },
   {
     v: "Waar koop ik vlaggen van Flag-CiCLO-doek?",
-    a: "Meerdere Nederlandse aanbieders leveren het inmiddels. Duurzame Vlaggen (de initiatiefnemer van deze site) is de enige webshop die volledig op dit doek draait, levert binnen 5 werkdagen en geeft bij elke order een CSRD-materiaalpaspoort mee.",
+    a: "Bij Duurzame Vlaggen, de webshop achter deze site en de enige die volledig op dit doek draait. Je stelt je vlag daar direct online samen, hij hangt binnen 5 werkdagen aan je mast en bij elke order krijg je een CSRD-materiaalpaspoort mee.",
   },
   {
     v: "Wat moet ik met mijn oude vlag doen?",

@@ -13,6 +13,15 @@
   --color-charcoal: #3a3a3a;
   --color-stone: #8b8d7a;
 
+  /* Eigen smoel binnen de familie: sage-blue voert hier de boventoon (het
+     zeewater-verhaal), forest is het natuur-accent, terracotta blijft de
+     schaarse energie-kleur. */
+  --color-zee: var(--color-sage-blue);
+  --zee-diep: #35586b;
+  --zee-3: rgba(92, 138, 157, 0.05);
+  --zee-6: rgba(92, 138, 157, 0.14);
+  --zee-15: rgba(92, 138, 157, 0.2);
+
   --forest-3: rgba(44, 95, 79, 0.04);
   --forest-6: rgba(44, 95, 79, 0.12);
   --forest-15: rgba(44, 95, 79, 0.15);
@@ -74,7 +83,7 @@ h3 {
 }
 
 a {
-  color: var(--color-forest);
+  color: var(--zee-diep);
   text-decoration: none;
 }
 a:hover {
@@ -94,7 +103,7 @@ img {
 
 /* ---- Header ---- */
 .siteHeader {
-  background: var(--color-forest);
+  background: var(--zee-diep);
 }
 .headerInner {
   display: flex;
@@ -134,7 +143,7 @@ img {
   font-family: var(--font-ui);
   font-weight: 800;
   font-size: 14px;
-  color: var(--color-forest);
+  color: var(--zee-diep);
   background: #fff;
   padding: 10px 18px;
   border-radius: var(--radius-md);
@@ -143,7 +152,7 @@ img {
   transition: transform var(--duration-base) var(--ease-out);
 }
 .headerCta:hover {
-  color: var(--color-forest);
+  color: var(--zee-diep);
   transform: translateY(-2px);
 }
 @media (max-width: 720px) {
@@ -157,7 +166,7 @@ img {
 
 /* ---- Footer ---- */
 .siteFooter {
-  background: var(--color-forest);
+  background: var(--zee-diep);
   color: rgba(255, 255, 255, 0.85);
   margin-top: var(--space-3xl);
   padding-block: var(--space-2xl) var(--space-lg);
