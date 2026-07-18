@@ -1,142 +1,291 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
+/* Home — editoriale opbouw: hero met cijfers, levenscyclus in vier foto's,
+   het waarom, de werking in drie stappen en de route naar de winkel. */
 
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
+.hero {
+  padding-block: clamp(56px, 9vw, 120px) clamp(40px, 6vw, 80px);
+}
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-eyebrow);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background: var(--color-copper-rust);
+  padding: 8px 18px;
+  border-radius: 10px;
+}
+.heroTitel {
+  font-weight: 800;
+  font-size: clamp(44px, 7vw, 84px);
+  max-width: 14ch;
+  margin-top: var(--space-md);
+}
+.heroTitel em {
+  font-style: italic;
+  color: var(--color-terracotta);
+}
+.heroLead {
+  font-size: clamp(17px, 2vw, 20px);
+  max-width: 58ch;
+  margin-top: var(--space-md);
+  color: var(--color-charcoal);
+}
+.heroActies {
   display: flex;
-  flex: 1;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+.knop {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: 15px;
+  color: #fff;
+  background: var(--color-forest);
+  padding: 16px 30px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition:
+    background var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+.knop:hover {
+  background: var(--color-terracotta);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.knopLicht {
+  composes: knop;
+  color: var(--color-forest);
+  background: #fff;
+  border: 2px solid var(--forest-6);
+  box-shadow: none;
+}
+.knopLicht:hover {
+  background: var(--color-forest);
+  color: #fff;
 }
 
-.main {
+.statRij {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  margin-top: clamp(32px, 5vw, 56px);
+  max-width: 760px;
+}
+@media (max-width: 640px) {
+  .statRij {
+    grid-template-columns: 1fr;
+  }
+}
+.stat {
+  background: #fff;
+  border: 2px solid var(--forest-6);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+.statWaarde {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  color: var(--color-forest);
+}
+.statLabel {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-stone);
+}
+
+/* ---- Secties ---- */
+.sectie {
+  padding-block: clamp(40px, 6vw, 72px);
+}
+.sectieDonker {
+  composes: sectie;
+  background: var(--color-forest);
+}
+.sectieDonker h2,
+.sectieDonker p {
+  color: #fff;
+}
+.sectieKop {
+  font-weight: 700;
+  font-size: clamp(30px, 4.5vw, 48px);
+  max-width: 22ch;
+}
+.sectieIntro {
+  max-width: 62ch;
+  margin-top: var(--space-sm);
+  color: var(--color-charcoal);
+}
+.sectieDonker .sectieIntro {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ---- Levenscyclus ---- */
+.cyclus {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+  margin-top: var(--space-xl);
+}
+@media (max-width: 860px) {
+  .cyclus {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.cyclusStap {
   display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  gap: 10px;
 }
-
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
-}
-
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
+.cyclusFoto {
   width: 100%;
-  max-width: 440px;
-  gap: 16px;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
+}
+.cyclusLabel {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+  text-align: center;
+}
+.cyclusSub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin-top: -6px;
+}
+
+/* ---- Waarom / cijfers ---- */
+.duo {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+  margin-top: var(--space-lg);
+}
+@media (max-width: 860px) {
+  .duo {
+    grid-template-columns: 1fr;
+  }
+}
+.duoBeeld {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+.cijferVergelijk {
+  display: grid;
+  gap: var(--space-sm);
+}
+.cijferKaart {
+  background: #fff;
+  border: 2px solid var(--forest-6);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+}
+.cijferKaart strong {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--color-forest);
+}
+.cijferKaart[data-slecht] strong {
+  color: var(--color-terracotta);
+}
+.cijferKaart span {
+  display: block;
+  font-size: 14px;
+  color: var(--color-stone);
+}
+
+/* ---- Stappen ---- */
+.stappen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+@media (max-width: 860px) {
+  .stappen {
+    grid-template-columns: 1fr;
+  }
+}
+.stap {
+  background: #fff;
+  border: 2px solid var(--forest-6);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+.stapNummer {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  background: var(--color-forest);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-weight: 800;
   font-size: 14px;
 }
+.stap h3 {
+  font-size: 19px;
+  margin-top: 12px;
+}
+.stap p {
+  font-size: 15px;
+  margin-top: 8px;
+  color: var(--color-charcoal);
+}
 
-.ctas a {
-  display: flex;
-  justify-content: center;
+/* ---- Winkel-CTA ---- */
+.winkel {
+  background: #fff;
+  border: 2px solid var(--forest-6);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  padding: clamp(28px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: 1.4fr auto;
+  gap: var(--space-lg);
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+  margin-top: var(--space-xl);
 }
-
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--button-secondary-border);
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+@media (max-width: 860px) {
+  .winkel {
+    grid-template-columns: 1fr;
   }
 }
-
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
+.winkelPunten {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px var(--space-md);
+  margin-top: var(--space-sm);
+  padding: 0;
+  list-style: none;
 }
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
+.winkelPunten li {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-forest);
 }

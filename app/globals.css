@@ -1,49 +1,205 @@
+/* Flag-CiCLO.nl — zelfde ontwerptaal als duurzame-vlaggen.nl (Styleguide V5.0
+   "Sora Edition"): licht, geometrisch, forest + terracotta, Sora voor koppen
+   en UI, Manrope voor lopende tekst. */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --color-forest: #2c5f4f;
+  --color-terracotta: #c66b4e;
+  --color-sage-blue: #5c8a9d;
+  --color-copper-rust: #a46b4a;
+  --color-sage-purple: #8b7ba8;
+  --color-white: #ffffff;
+  --color-off-white: #f7f5f2;
+  --color-charcoal: #3a3a3a;
+  --color-stone: #8b8d7a;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  --forest-3: rgba(44, 95, 79, 0.04);
+  --forest-6: rgba(44, 95, 79, 0.12);
+  --forest-15: rgba(44, 95, 79, 0.15);
 
-html {
-  height: 100%;
-}
+  --font-heading: var(--font-sora), system-ui, sans-serif;
+  --font-body: var(--font-manrope), system-ui, sans-serif;
+  --font-ui: var(--font-sora), system-ui, sans-serif;
+  --font-eyebrow: var(--font-bricolage), system-ui, sans-serif;
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
 
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  --shadow-sm: 0 2px 8px rgba(44, 95, 79, 0.12);
+  --shadow-md: 0 4px 16px rgba(44, 95, 79, 0.15);
+  --shadow-lg: 0 8px 24px rgba(44, 95, 79, 0.25);
+
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--color-charcoal);
+  background: var(--color-off-white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  color: var(--color-charcoal);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
 }
 
 a {
-  color: inherit;
+  color: var(--color-forest);
   text-decoration: none;
 }
+a:hover {
+  color: var(--color-terracotta);
+}
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 48px);
+}
+
+/* ---- Header ---- */
+.siteHeader {
+  background: var(--color-forest);
+}
+.headerInner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  min-height: 68px;
+}
+.wordmark {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.wordmark:hover {
+  color: #fff;
+}
+.wordmarkNl {
+  color: #e6a488;
+}
+.headerNav {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.5vw, 28px);
+  margin-left: auto;
+}
+.headerNav a {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.88);
+}
+.headerNav a:hover {
+  color: #fff;
+}
+.headerCta {
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--color-forest);
+  background: #fff;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+.headerCta:hover {
+  color: var(--color-forest);
+  transform: translateY(-2px);
+}
+@media (max-width: 720px) {
+  .headerNav {
+    display: none;
   }
+  .headerCta {
+    margin-left: auto;
+  }
+}
+
+/* ---- Footer ---- */
+.siteFooter {
+  background: var(--color-forest);
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: var(--space-3xl);
+  padding-block: var(--space-2xl) var(--space-lg);
+}
+.footerInner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+@media (max-width: 860px) {
+  .footerInner {
+    grid-template-columns: 1fr;
+  }
+}
+.footerKolom {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.footerKolom a {
+  color: rgba(255, 255, 255, 0.85);
+}
+.footerKolom a:hover {
+  color: #e6a488;
+}
+.footerKop {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 4px;
+}
+.footerBasis {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
 }

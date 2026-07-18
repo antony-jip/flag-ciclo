@@ -1,0 +1,147 @@
+/* Gedeelde opmaak voor de kennispagina's: rustige leeskolom met dezelfde
+   kaart- en kleurentaal als de home. */
+
+.pagina {
+  padding-block: clamp(48px, 7vw, 88px);
+}
+.kolom {
+  max-width: 760px;
+}
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-eyebrow);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background: var(--color-copper-rust);
+  padding: 8px 18px;
+  border-radius: 10px;
+}
+.titel {
+  font-weight: 800;
+  font-size: clamp(34px, 5.5vw, 60px);
+  margin-top: var(--space-md);
+  max-width: 18ch;
+}
+.lead {
+  font-size: clamp(17px, 2vw, 19px);
+  margin-top: var(--space-md);
+  max-width: 60ch;
+}
+.kolom h2 {
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 32px);
+  margin-top: var(--space-2xl);
+}
+.kolom p {
+  margin-top: var(--space-sm);
+}
+.kolom ul {
+  margin-top: var(--space-sm);
+  padding-left: 22px;
+  display: grid;
+  gap: 8px;
+}
+.beeld {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  margin-top: var(--space-xl);
+}
+.noot {
+  margin-top: var(--space-xl);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--forest-3);
+  border: 2px solid var(--forest-6);
+  border-radius: var(--radius-md);
+  font-size: 14.5px;
+}
+
+/* Vergelijkingstabel: scrollt binnen zijn eigen kader op smalle schermen. */
+.tabelWrap {
+  margin-top: var(--space-xl);
+  overflow-x: auto;
+  border: 2px solid var(--forest-6);
+  border-radius: var(--radius-lg);
+  background: #fff;
+}
+.tabel {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+.tabel th,
+.tabel td {
+  text-align: left;
+  vertical-align: top;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--forest-6);
+}
+.tabel thead th {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-stone);
+  background: var(--color-off-white);
+}
+.tabel tbody th {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--color-charcoal);
+  white-space: nowrap;
+}
+.tabel td[data-goed] {
+  color: var(--color-forest);
+  font-weight: 600;
+}
+
+/* FAQ */
+.vraag {
+  margin-top: var(--space-lg);
+  background: #fff;
+  border: 2px solid var(--forest-6);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+.vraag h2 {
+  font-size: 20px;
+  margin-top: 0;
+}
+.vraag p {
+  margin-top: 10px;
+  font-size: 15.5px;
+}
+
+.ctaRij {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-xl);
+}
+.knop {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: 15px;
+  color: #fff;
+  background: var(--color-forest);
+  padding: 15px 28px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition:
+    background var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+.knop:hover {
+  background: var(--color-terracotta);
+  color: #fff;
+  transform: translateY(-2px);
+}
