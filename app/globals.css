@@ -165,10 +165,14 @@ img {
 }
 
 /* ---- Footer ---- */
+/* Geen marge boven de footer: de homepage sluit met een donker statement-blok
+   dat naadloos in de footer doorloopt (een lichte strook ertussen las als
+   fout). De kennispagina's houden hun eigen ruimte via hun bottom-padding;
+   de border markeert daar de overgang. */
 .siteFooter {
   background: var(--zee-diep);
   color: rgba(255, 255, 255, 0.85);
-  margin-top: var(--space-3xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding-block: var(--space-2xl) var(--space-lg);
 }
 .footerInner {
